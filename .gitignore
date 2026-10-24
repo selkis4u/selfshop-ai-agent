@@ -1,0 +1,38 @@
+# 파이썬 캐시 및 가상환경
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# IDE 및 OS 설정
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 모델 가중치 및 대용량 바이너리 (Git 추적 제외)
+*.pt
+*.onnx
+*.engine
+data/models/*.pt
+data/models/*.onnx
+
+# 런타임 캡처 이미지 및 임시 데이터
+data/live_shelf.jpg
+data/sample_shelf_01.jpg
+data/*.jpg
+data/*.png
+data/*.mp4
+
+# ChromaDB 로컬 벡터 스토어 데이터
+data/chroma_db/
+chroma_db/
+
+# 환경 변수 및 인증 토큰 (텔레그램 토큰 등)
+.env
+*.env
+
+# pytest 캐시
+.pytest_cache/

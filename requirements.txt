@@ -1,0 +1,20 @@
+# 1. Computer Vision & 이미지 처리
+opencv-python>=4.8.0
+numpy<2.0.0
+pillow>=10.0.0
+
+# 2. Agent Orchestration & LLM
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-community>=0.2.0
+langgraph>=0.1.0
+
+# 3. Hybrid RAG (Vector DB, BM25, Re-ranking)
+chromadb>=0.5.0
+rank-bm25>=0.2.2
+sentence-transformers>=3.0.0
+
+# 4. 환경 변수 및 설정 관리
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+pydantic>=2.0.0
