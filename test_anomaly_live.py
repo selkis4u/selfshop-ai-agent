@@ -5,8 +5,12 @@ from ultralytics import YOLO
 model = YOLO("yolo11n-pose.pt")
 
 # 2. 웹캠 연결 (노트북 기본 웹캠은 0, 외장/스마트폰 캠은 해당 인덱스나 URL)
-cap = cv2.VideoCapture("http://192.168.219.128:4747/video")
-#cap = cv2.VideoCapture(0)
+stream_url = "http://192.168.3.217:8080/video"  
+cap = cv2.VideoCapture(stream_url, cv2.CAP_FFMPEG)
+#cap = cv2.VideoCapture("http://192.168.3.217:8080")
+# cap = cv2.VideoCapture(0)
+
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 
 if not cap.isOpened():
     print("❌ 카메라를 열 수 없습니다. 연결 상태를 확인해주세요.")
@@ -53,7 +57,7 @@ while True:
                     cv2.rectangle(frame, (0, 0), (frame.shape[1], 80), (0, 0, 255), -1)
                     cv2.putText(
                         frame,
-                        "🚨 WARNING: FALL-DOWN / ABNORMAL POSTURE DETECTED!",
+                        "🚨 넘어짐이 감지되었습니다.",
                         (30, 50),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         0.8,
@@ -61,7 +65,7 @@ while True:
                         2
                     )
 
-    cv2.imshow("Real-Time Store Anomaly Monitor", frame)
+    cv2.imshow("실시간 이상행동 탐지", frame)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
